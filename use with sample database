@@ -1,0 +1,83 @@
+<pre><code>
+SELECT COUNT(*) FROM orders; 
+SELECT MIN(order_date), MAX(order_date) FROM orders; 
+SELECT SUM(revenue) FROM orders;
+</pre></code>
+<br>
+<p>Break down:
+<em>SELECT COUNT(*)</em> Count ALL the rows of the table and print the total 
+<br>
+<em>FROM</em> indicates which table to pull the information from. <strong>NOTE: </strong>unless stated otherwise this will be the general idea of what FROM is doing going foward, keep this in mind.
+<br>
+<em>SELECT MIN, MAX</em> Here we are asking for the minimum and maximum values of the specified table. (the example points to order dates in this case.)
+</p>
+<p>
+Output:
++----------+
+| COUNT(*) |
++----------+
+|       30 |
++----------+
++-----------------+-----------------+
+| MIN(order_date) | MAX(order_date) |
++-----------------+-----------------+
+| 2024-01-08      | 2024-03-28      |
++-----------------+-----------------+
++--------------+
+| SUM(revenue) |
++--------------+
+|     13270.82 |
++--------------+
+</p>
+
+
+
+<pre><code>
+SELECT * FROM orders
+ORDER BY order_date
+LIMIT 10;
+</pre></code>
+<p> 
+    Breakdown of what's happening:
+    <em>Select *</em> (Show all)
+    <em>From</em> (the table labled orders)
+    <em>Order</em> by (Setting the list to be in order by date)
+    <em>Limit</em> (Limits the output of lines, in this case we set it to 10.)
+</p>
+
+<strong>Result: </stong>
+<p>
++----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
+| order_id | order_date | customer_name  | city        | country | category    | product             | quantity | unit_price | discount_pct | revenue |
++----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
+|     1001 | 2024-01-08 | Sarah Mitchell | London      | GBR     | Laptops     | ProBook 14          |        1 |     899.00 |         0.00 |  899.00 |
+|     1002 | 2024-01-10 | James Cooper   | New York    | USA     | Accessories | USB-C Hub 7-Port    |        2 |      49.99 |         0.10 |   89.98 |
+|     1003 | 2024-01-12 | Aisha Okafor   | Lagos       | NGA     | Monitors    | 27" 4K Display      |        1 |     449.00 |         0.00 |  449.00 |
+|     1004 | 2024-01-15 | Lucas Ferreira | São Paulo   | BRA     | Peripherals | Mechanical Keyboard |        1 |     129.00 |         0.05 |  122.55 |
+|     1005 | 2024-01-17 | Emma Johansson | Stockholm   | SWE     | Software    | Analytics Suite Pro |        1 |     299.00 |         0.00 |  299.00 |
+|     1006 | 2024-01-20 | Oliver Wright  | Manchester  | GBR     | Accessories | USB-C Hub 7-Port    |        3 |      49.99 |         0.15 |  127.47 |
+|     1007 | 2024-01-22 | Priya Sharma   | Mumbai      | IND     | Laptops     | UltraSlim 13        |        1 |     749.00 |         0.05 |  711.55 |
+|     1008 | 2024-01-25 | Noah Müller    | Berlin      | DEU     | Monitors    | 24" FHD Monitor     |        2 |     249.00 |         0.00 |  498.00 |
+|     1009 | 2024-01-28 | Isabella Rossi | Milan       | ITA     | Peripherals | Wireless Mouse      |        1 |      59.99 |         0.00 |   59.99 |
+|     1010 | 2024-01-30 | Liam Nguyen    | Ho Chi Minh | VNM     | Software    | Analytics Suite Pro |        2 |     299.00 |         0.10 |  538.20 |
++----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
+
+</p>
+
+<ul><p>SURPRISE QUIZ!: </p>
+<li>Which country had the most sales?
+<br>
+<em>Hint:</em>
+<pre><code>
+<strong>SELECT* FROM</strong> orders
+<strong>ORDER BY</strong> country;
+</pre></code>
+</li>
+<li>
+What's the name of the best selling product, how many were sold, and which country made the sale?
+<br>
+<pre><code>
+<strong>SELECT</strong> country, product, quantity <strong>FROM</strong> orders
+<strong>ORDER BY</strong> quantity <strong>DESC</strong>;
+</pre></code>
+</li>
