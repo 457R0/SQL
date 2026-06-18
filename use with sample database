@@ -1,11 +1,13 @@
 SELECT COUNT(*) FROM orders; 
 SELECT MIN(order_date), MAX(order_date) FROM orders; 
 SELECT SUM(revenue) FROM orders;
+
+
 Break down:
 SELECT COUNT(*): Count ALL the rows of the table and print the total 
-<br>
+
 FROM: indicates which table to pull the information from. **NOTE unless stated otherwise this will be the general idea of what FROM is doing going foward, keep this in mind.
-<br>
+
 SELECT MIN, MAX: Here we are asking for the minimum and maximum values of the specified table. (the example points to order dates in this case.)
 Output:
 +----------+
@@ -23,16 +25,16 @@ Output:
 +--------------+
 |     13270.82 |
 +--------------+
-<br>
+
+
 SELECT * FROM orders
 ORDER BY order_date
 LIMIT 10;
-<br>
     Breakdown of what's happening:
-    <em>Select *</em> (Show all)
-    <em>From</em> (the table labled orders)
-    <em>Order</em> by (Setting the list to be in order by date)
-    <em>Limit</em> (Limits the output of lines, in this case we set it to 10.)
+    Select * (Show all)
+    From (the table labled orders)
+    Order by (Setting the list to be in order by date)
+    Limit (Limits the output of lines, in this case we set it to 10.)
 
 result
 +----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
@@ -51,16 +53,12 @@ result
 +----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
 
 SURPRISE QUIZ! :
-Which country had the most sales?
-<br>
+1. Which country had the most sales?
 Hint:
 SELECT* FROM orders
 ORDER BY country;
 
-
-<br>
-What's the name of the best selling product, how many were sold, and which country made the sale?
-<br>
+2. What's the name of the best selling product, how many were sold, and which country made the sale?
 Hint:
 SELECT country, product, quantity FROM orders
 ORDER BY quantity DESC;
