@@ -1,17 +1,12 @@
-<pre><code>
 SELECT COUNT(*) FROM orders; 
 SELECT MIN(order_date), MAX(order_date) FROM orders; 
 SELECT SUM(revenue) FROM orders;
-</pre></code>
+Break down:
+SELECT COUNT(*): Count ALL the rows of the table and print the total 
 <br>
-<p>Break down:
-<em>SELECT COUNT(*)</em> Count ALL the rows of the table and print the total 
+FROM: indicates which table to pull the information from. **NOTE unless stated otherwise this will be the general idea of what FROM is doing going foward, keep this in mind.
 <br>
-<em>FROM</em> indicates which table to pull the information from. <strong>NOTE: </strong>unless stated otherwise this will be the general idea of what FROM is doing going foward, keep this in mind.
-<br>
-<em>SELECT MIN, MAX</em> Here we are asking for the minimum and maximum values of the specified table. (the example points to order dates in this case.)
-</p>
-<p>
+SELECT MIN, MAX: Here we are asking for the minimum and maximum values of the specified table. (the example points to order dates in this case.)
 Output:
 +----------+
 | COUNT(*) |
@@ -28,25 +23,18 @@ Output:
 +--------------+
 |     13270.82 |
 +--------------+
-</p>
-
-
-
-<pre><code>
+<br>
 SELECT * FROM orders
 ORDER BY order_date
 LIMIT 10;
-</pre></code>
-<p> 
+<br>
     Breakdown of what's happening:
     <em>Select *</em> (Show all)
     <em>From</em> (the table labled orders)
     <em>Order</em> by (Setting the list to be in order by date)
     <em>Limit</em> (Limits the output of lines, in this case we set it to 10.)
-</p>
 
-<strong>Result: </stong>
-<p>
+result
 +----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
 | order_id | order_date | customer_name  | city        | country | category    | product             | quantity | unit_price | discount_pct | revenue |
 +----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
@@ -62,23 +50,17 @@ LIMIT 10;
 |     1010 | 2024-01-30 | Liam Nguyen    | Ho Chi Minh | VNM     | Software    | Analytics Suite Pro |        2 |     299.00 |         0.10 |  538.20 |
 +----------+------------+----------------+-------------+---------+-------------+---------------------+----------+------------+--------------+---------+
 
-</p>
-
-<ul><p>SURPRISE QUIZ!: </p>
-<li>Which country had the most sales?
+SURPRISE QUIZ! :
+Which country had the most sales?
 <br>
-<em>Hint:</em>
-<pre><code>
-<strong>SELECT* FROM</strong> orders
-<strong>ORDER BY</strong> country;
-</pre></code>
-</li>
-<li>
+Hint:
+SELECT* FROM orders
+ORDER BY country;
+
+
+<br>
 What's the name of the best selling product, how many were sold, and which country made the sale?
 <br>
-<pre><code>
-<strong>SELECT</strong> country, product, quantity <strong>FROM</strong> orders
-<strong>ORDER BY</strong> quantity <strong>DESC</strong>;
-</pre></code>
-</li>
-</ul>
+Hint:
+SELECT country, product, quantity FROM orders
+ORDER BY quantity DESC;
